@@ -1,6 +1,6 @@
 const http = require('http');
 const openAPIUrl = 'http://api.open-notify.org/astros.json';
-var serverResp = [];
+
 var astroNum = 3;
 
 http.createServer((request, response)=>{
@@ -15,8 +15,10 @@ http.createServer((request, response)=>{
 	});
 }).listen(8080);
 
+var serverResp = 'There are ' + astroNum + ' astronaut(s) in space.';
+
 var options = {
-  "fulfillmentText": "There are $astroNum",
+  "fulfillmentText": serverResp,
   "source": "example.com",
   "payload": {
     "google": {
